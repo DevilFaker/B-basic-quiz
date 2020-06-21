@@ -1,4 +1,4 @@
-package com.gtb.quiz.answear;
+package com.gtb.quiz.answear.model;
 
 
 import lombok.AllArgsConstructor;
@@ -9,12 +9,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-    private long id;
-    private String name;
-    private long age;
-    private String avatar;
+public class Education {
     private String description;
-
-
+    private long year;
+    private String title;
+    private long userId;
 }

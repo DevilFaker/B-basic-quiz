@@ -1,7 +1,10 @@
-package com.gtb.quiz.answear;
+package com.gtb.quiz.answear.controller;
 
 import java.util.List;
 
+import com.gtb.quiz.answear.model.CreateAccountRequest;
+import com.gtb.quiz.answear.model.User;
+import com.gtb.quiz.answear.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -23,8 +26,22 @@ public class UserController {
 //    }
 
     @GetMapping(value = "/users/{id}")
-    public User createCar(@PathVariable("id") long userId) {
+    public User getUsersInfo(@PathVariable("id") long userId) {
         return userService.getUserById(userId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(value = "/users/get")
+    public List<User> getUsersInfo()
+    {
+        return userService.getAllUsers();
+    }
+
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(value = "/users")
+    public void createUser(@RequestBody CreateAccountRequest createAccountRequest) {
+        userService.createUser(createAccountRequest);
     }
 
 //    @GetMapping(value = "/get")

@@ -1,12 +1,15 @@
-package com.gtb.quiz.answear;
+package com.gtb.quiz.answear.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.gtb.quiz.answear.model.CreateAccountRequest;
+import com.gtb.quiz.answear.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -31,6 +34,11 @@ public class UserService {
             }
         }
         return null;
+    }
+
+    public void createUser(CreateAccountRequest createAccountRequest){
+        User user = createAccountRequest.toUser();
+        usersList.add(user);
     }
 
 //    public void login(User user) {
